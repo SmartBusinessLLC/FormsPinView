@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="FormsPinView.PinAuthPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FormsPinView.ViewModels">
+    <ContentPage.Content>
+        <StackLayout Padding="0,80"
+                     Orientation="Vertical"
+                     VerticalOptions="StartAndExpand">
+            <Label FontSize="Large"
+                   HorizontalTextAlignment="Start"
+                   Text="🔐 Enter your PIN"
+                   TextColor="Black" />
+            <StackLayout x:Name="PinCells"
+                         HorizontalOptions="CenterAndExpand"
+                         Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped" />
+                </StackLayout.GestureRecognizers>
+                <Frame Padding="0"
+                       BackgroundColor="ForestGreen"
+                       CornerRadius="40"
+                       HasShadow="false"
+                       HeightRequest="80"
+                       WidthRequest="80">
+                    <Frame Margin="3"
+                           BackgroundColor="White"
+                           CornerRadius="40"
+                           HasShadow="False"
+                           IsVisible="{Binding CellIsFilled[0], Converter={StaticResource InverseBooleanConverter}}">
+                        <RelativeLayout>
+                            <Label FontSize="60"
+                                   HeightRequest="80"
+                                   HorizontalTextAlignment="Center"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                                     Property=Width,
+                                                                                     Constant=-55}"
+                                   Text="{Binding Text[0], Source={x:Reference PinCode}, Mode=TwoWay}"
+                                   TextColor="ForestGreen" />
+                        </RelativeLayout>
+                    </Frame>
+                </Frame>
+                <Frame Padding="0"
+                       BackgroundColor="ForestGreen"
+                       CornerRadius="40"
+                       HasShadow="false"
+                       HeightRequest="80"
+                       WidthRequest="80">
+                    <Frame Margin="3"
+                           BackgroundColor="White"
+                           CornerRadius="40"
+                           HasShadow="False"
+                           IsVisible="{Binding CellIsFilled[1], Converter={StaticResource InverseBooleanConverter}}">
+                        <RelativeLayout>
+                            <Label FontSize="60"
+                                   HeightRequest="80"
+                                   HorizontalTextAlignment="Center"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                                     Property=Width,
+                                                                                     Constant=-55}"
+                                   Text="{Binding Text[1], Source={x:Reference PinCode}, Mode=TwoWay}"
+                                   TextColor="ForestGreen" />
+                        </RelativeLayout>
+                    </Frame>
+                </Frame>
+                <Frame Padding="0"
+                       BackgroundColor="ForestGreen"
+                       CornerRadius="40"
+                       HasShadow="false"
+                       HeightRequest="80"
+                       WidthRequest="80">
+                    <Frame Margin="3"
+                           BackgroundColor="White"
+                           CornerRadius="40"
+                           HasShadow="False"
+                           IsVisible="{Binding CellIsFilled[2], Converter={StaticResource InverseBooleanConverter}}">
+                        <RelativeLayout>
+                            <Label FontSize="60"
+                                   HeightRequest="80"
+                                   HorizontalTextAlignment="Center"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                                     Property=Width,
+                                                                                     Constant=-55}"
+                                   Text="{Binding Text[2], Source={x:Reference PinCode}, Mode=TwoWay}"
+                                   TextColor="ForestGreen" />
+                        </RelativeLayout>
+                    </Frame>
+                </Frame>
+                <Frame Padding="0"
+                       BackgroundColor="ForestGreen"
+                       CornerRadius="40"
+                       HasShadow="false"
+                       HeightRequest="80"
+                       WidthRequest="80">
+                    <Frame Margin="3"
+                           BackgroundColor="White"
+                           CornerRadius="40"
+                           HasShadow="False"
+                           IsVisible="{Binding CellIsFilled[3], Converter={StaticResource InverseBooleanConverter}}">
+                        <RelativeLayout>
+                            <Label FontSize="60"
+                                   HeightRequest="80"
+                                   HorizontalTextAlignment="Center"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                                     Property=Width,
+                                                                                     Constant=-55}"
+                                   Text="{Binding Text[3], Source={x:Reference PinCode}, Mode=TwoWay}"
+                                   TextColor="ForestGreen" />
+                        </RelativeLayout>
+                    </Frame>
+                </Frame>
+            </StackLayout>
+            <Entry x:Name="PinCode"
+                   IsVisible="False"
+                   Keyboard="Numeric"
+                   Text="{Binding Pin, Mode=TwoWay}" />
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Switch IsToggled="{Binding PinIsHidden, Mode=TwoWay}" />
+                <Label FontSize="Large"
+                       Text="Hide pin"
+                       VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
